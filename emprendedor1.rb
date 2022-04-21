@@ -2,7 +2,6 @@ def is_number(number)
     if number.match(/^-?(\d|[1-9]+\d*|\.\d+|0\.\d+|[1-9]+\d*\.\d+)$/) == nil
         return FALSE
     return TRUE
-
 end
 
 #Validar cantidad de parametros
