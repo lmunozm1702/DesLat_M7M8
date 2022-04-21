@@ -1,6 +1,9 @@
-Precio = 50
-Usuarios = 1000
-Gastos = 20000
+def is_number(number)
+    if number.match(/^-?(\d|[1-9]+\d*|\.\d+|0\.\d+|[1-9]+\d*\.\d+)$/) == nil
+        return FALSE
+    return TRUE
+
+end
 
 #Validar cantidad de parametros
 if ARGV.length != 3
@@ -8,11 +11,7 @@ if ARGV.length != 3
     exit
 end
 
-#puts "[#{ARGV[0].match(/^-?(\d|[1-9]+\d*|\.\d+|0\.\d+|[1-9]+\d*\.\d+)$/)}]"
-
-if ARGV[0].match(/^-?(\d|[1-9]+\d*|\.\d+|0\.\d+|[1-9]+\d*\.\d+)$/) == nil or
-        ARGV[1].match(/^-?(\d|[1-9]+\d*|\.\d+|0\.\d+|[1-9]+\d*\.\d+)$/) == nil or
-        ARGV[2].match(/^-?(\d|[1-9]+\d*|\.\d+|0\.\d+|[1-9]+\d*\.\d+)$/) == nil
+if !is_number(ARGV[0]) or !is_number(ARGV[1]) or !is_number(ARGV[2])
     puts "ERROR: Los parametros deben ser numericos"
     exit
 end
