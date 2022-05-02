@@ -5,7 +5,6 @@ def is_number(number)
     return true
 end
 
-
 #Validar cantidad de parametros
 if ARGV.length != 5
     puts "ERROR: Se requieren 5 parametros: precio, usuarios totales, usuarios premium, usuarios gratuitos y gastos"
