@@ -86,7 +86,23 @@ puts "[X]"
 puts "[0]"
 puts "[N]avidad"
 puts "Ingrese opción: "
-opcion = gets.chomp
+opcion = gets.chomp.upcase
 puts "Ingrese niveles: "
 niveles = gets.chomp
-puts opcion, niveles
+
+case opcion
+    when "O"
+        letra_o(niveles.to_i)
+    when "I"
+        letra_i(niveles.to_i)
+    when "Z"
+        letra_z(niveles.to_i)
+    when "X"
+        letra_o(niveles.to_i)
+    when "0"
+        numero_0(niveles.to_i)
+    when "N"
+        navidad(niveles.to_i)
+    else
+        puts "Opción inválida"
+end
