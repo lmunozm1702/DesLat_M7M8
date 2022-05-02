@@ -67,7 +67,7 @@ end
 def navidad (niveles)
     for i in 1..niveles/2 do
         for j in 1..niveles do
-            if !niveles.even? and !(j-i).even? and j-i<=niveles/2 
+            if !(j-i).even? and j-i<=niveles/2 and j > niveles/2 - i
                 print "X"
             else
                 print " "
@@ -76,4 +76,17 @@ def navidad (niveles)
         puts ""
     end
 end
-navidad(13)
+
+system("clear")
+puts "Patrones disponibles:"
+puts "[O]"
+puts "[I]"
+puts "[Z]"
+puts "[X]"
+puts "[0]"
+puts "[N]avidad"
+puts "Ingrese opción: "
+opcion = gets.chomp
+puts "Ingrese niveles: "
+niveles = gets.chomp
+puts opcion, niveles
