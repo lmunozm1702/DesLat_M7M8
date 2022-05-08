@@ -68,10 +68,9 @@ def navidad (niveles)
     #copa del arbol
     for i in 1..niveles/2 do
         for j in 1..niveles do
-            if !(j-i).even? and j-i<=niveles/2 and j > niveles/2 - i
-                print "X"
-            else
-                print " "
+            print (!(j-i).even? and j-i<=niveles/2 and j > niveles/2 - i)? "X":" "
+            if i==1 and (!(j-i).even? and j-i<=niveles/2 and j > niveles/2 - i)
+                centro = j #centro del arbol
             end
         end
         puts ""
@@ -79,19 +78,7 @@ def navidad (niveles)
     #pie del arbol
     for i in 1..niveles/2 do
         for j in 1..niveles do
-            if niveles.even?
-                if j > niveles/2-1 and j <= niveles/2 +2
-                    print "X"
-                else
-                    print " "
-                end
-            else
-                if j >= niveles/2-1 and j < niveles/2 +2
-                    print "X"
-                else
-                    print " "
-                end
-            end                
+            print (j >= centro-1 and j <= centro +1)? "X":" "
         end
         puts ""
     end
