@@ -78,7 +78,7 @@ def navidad (niveles)
     #pie del arbol
     for i in 1..niveles/2 do
         for j in 1..niveles do
-            print (j >= centro-1 and j <= centro +1)? "X":" "
+            print (j >= centro-1 and j <= centro+1)? "X":" "
         end
         puts ""
     end
