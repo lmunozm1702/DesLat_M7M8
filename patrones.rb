@@ -65,6 +65,7 @@ def numero_0(niveles)
 end
 
 def navidad (niveles)
+    #copa del arbol
     for i in 1..niveles/2 do
         for j in 1..niveles do
             if !(j-i).even? and j-i<=niveles/2 and j > niveles/2 - i
@@ -72,6 +73,25 @@ def navidad (niveles)
             else
                 print " "
             end
+        end
+        puts ""
+    end
+    #pie del arbol
+    for i in 1..niveles/2 do
+        for j in 1..niveles do
+            if niveles.even?
+                if j > niveles/2-1 and j <= niveles/2 +2
+                    print "X"
+                else
+                    print " "
+                end
+            else
+                if j >= niveles/2-1 and j < niveles/2 +2
+                    print "X"
+                else
+                    print " "
+                end
+            end                
         end
         puts ""
     end
