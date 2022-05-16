@@ -62,11 +62,77 @@ INSERT INTO posts(
 	usr_name, title, content, description)
 	VALUES ('Pedro','Pedro: 2nd. post','Segundo post de Pedro','Esta es la descripcion del segundo post de Pedro');
 
-/*7. Eliminar el post de Carlos. (1 Punto)
-8. Ingresar un nuevo post para el usuario "Carlos". (0.6 Puntos)
-Parte 2
+/*7. Eliminar el post de Carlos. (1 Punto)*/
+DELETE FROM posts
+WHERE id=3;
+
+/*8. Ingresar un nuevo post para el usuario "Carlos". (0.6 Puntos)*/
+INSERT INTO posts(
+	usr_name, title, content, description)
+	VALUES ('Carlos','Carlos: 2nd. post','Segundo post de Carlos','Esta es la descripcion del segundo post de Carlos');
+
+/*Parte 2
 1. Crear una nueva tabla llamada “comentarios”, con los atributos id, fecha, hora de
-creación y contenido, que se relacione con la tabla posts. (1 Punto)
-2. Crear 2 comentarios para el post de "Pamela" y 4 para "Carlos". (0.4 Puntos)
-3. Crear un nuevo post para "Margarita". (1 Punto)
-4. Ingresar 5 comentarios para el post de Margarita. (1 Punto)*/
+creación y contenido, que se relacione con la tabla posts. (1 Punto)*/
+DROP TABLE IF EXISTS "comments";
+
+CREATE TABLE comments
+(
+    id serial NOT NULL,
+    id_posts integer NOT NULL,
+    creation_date timestamp DEFAULT now(),
+    content varchar(100) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY(id_posts) REFERENCES posts(id)
+)
+
+/*2. Crear 2 comentarios para el post de "Pamela" y 4 para "Carlos". (0.4 Puntos)*/
+INSERT INTO comments(
+	id_posts, content)
+	VALUES (1,'Comentario 1 post 1 Pamela');
+
+INSERT INTO comments(
+	id_posts, content)
+	VALUES (2,'Comentario 1 post 2 Pamela');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (6,'Comentario 1 post 1 Carlos');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (6,'Comentario 2 post 1 Carlos');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (6,'Comentario 3 post 1 Carlos');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (6,'Comentario 4 post 1 Carlos');
+
+/*3. Crear un nuevo post para "Margarita". (1 Punto)*/
+INSERT INTO posts(
+	usr_name, title, content, description)
+	VALUES ('Margarita','Margarita: 1st. post','Primer post de Margarita','Esta es la descripcion del primer post de Margarita');
+
+/*4. Ingresar 5 comentarios para el post de Margarita. (1 Punto)*/
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (7,'Comentario 1 post 1 Margarita');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (7,'Comentario 2 post 1 Margarita');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (7,'Comentario 3 post 1 Margarita');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (7,'Comentario 4 post 1 Margarita');
+
+INSERT INTO comments(
+    id_posts, content)
+    VALUES (7,'Comentario 5 post 1 Margarita');
