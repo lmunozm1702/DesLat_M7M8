@@ -8,8 +8,6 @@ CREATE DATABASE "dbTitles"
     ENCODING = 'UTF8'
     CONNECTION LIMIT = -1;
 
-
-
 /*2. Cargar ambos archivos a su tabla correspondiente. (1 Punto)*/
 DROP TABLE IF EXISTS "titles";
 CREATE TABLE titles
@@ -40,12 +38,16 @@ select * from titles where title = 'Titanic';
 /*  4. Listar a todos los actores que aparecen en la película "Titanic". */
 select * from actors where id_title = (select id from titles where title = 'Titanic');
 
-/*    5. Consultar en cuántas películas del top 100 participa Harrison Ford. */
+/*  5. Consultar en cuántas películas del top 100 participa Harrison Ford. */
 select count(*) from actors where actor = 'Harrison Ford';
 
+/*  6. Indicar las películas estrenadas entre los años 1990 y 1999 ordenadas por título de
+    manera ascendente. */
+select * from titles where release_year BETWEEN 1990 AND 1999 order by title ASC;
 
-/*    6. Indicar las películas estrenadas entre los años 1990 y 1999 ordenadas por título de
-    manera ascendente. (1 punto)
-    7. Hacer una consulta SQL que muestre los títulos con su longitud, la longitud debe ser
-    nombrado para la consulta como “longitud_titulo”. (1 punto)
-    8. Consultar cual es la longitud más grande entre todos los títulos de las películas.*/
+/*  7. Hacer una consulta SQL que muestre los títulos con su longitud, la longitud debe ser
+    nombrado para la consulta como “longitud_titulo”. */
+select title, length(title) as longitud_titulo from titles;
+
+/*  8. Consultar cual es la longitud más grande entre todos los títulos de las películas.*/
+select max(length(title)) from titles;
