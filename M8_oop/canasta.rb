@@ -22,3 +22,5 @@ end
 
 fusion_canastas = Canasta.new(2,1,3) + Canasta.new(5,2,3)
 puts fusion_canastas.cantidad_de_elementos
+
+#
