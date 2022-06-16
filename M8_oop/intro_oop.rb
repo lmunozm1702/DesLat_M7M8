@@ -79,11 +79,101 @@ m1 = Mascota.new("Shadow")
 #Error forzado, encapsulamiento, no se puede acceder a una variable dentro del método.
 #puts m1.nombre
 
+
 #---
 class Caja
-    attr_accessor :ancho
+    attr_accessor :ancho, :alto
 end
 
 c = Caja.new()
 c.ancho = 2
-puts c.ancho
+c.alto = 3
+puts c.ancho,c.alto
+
+#-----
+
+class Experimento
+    attr_reader :a
+    attr_writer :b
+end
+
+exp = Experimento.new
+exp.a
+# exp.a = 5 #error
+exp.b = 5
+
+
+#---
+class Ejemplo
+    def initialize(a)
+        puts(a)
+    end
+end
+
+Ejemplo.new(5)
+Ejemplo.new('hola')
+
+class Semaforo
+    def initialize(estado)
+        @estado=estado
+        puts @estado
+    end
+end
+
+s1=Semaforo.new(:rojo)
+s2=Semaforo.new(:verde)
+
+class Mascota
+    attr_accessor :nombre
+    def initialize(nombre)
+        @nombre=nombre #variable de instancia
+    end
+end
+
+primera_mascota = Mascota.new("Spike")
+puts primera_mascota.nombre
+
+class Persona
+    def initialize
+        @nombre = ""
+        @edad = 0
+    end
+    def saludar()
+        puts "hola" + @nombre
+    end
+end
+
+luis = Persona.new()
+luis.saludar
+
+class Casa
+    def initialize (pisos = 1)
+        @pisos = pisos
+    end
+end
+
+casa1 = Casa.new
+casa2 = Casa.new(2)
+
+#---
+class Producto
+    def initialize(name, stock=0)
+        @name=name
+        @stock=stock
+    end
+end
+
+#---
+class Punto
+    attr_reader :x,:y
+    def initialize(x,y)
+        @x=x
+        @y=y
+    end
+    def avanzar()
+        @x += 1
+    end
+end
+
+p1=Punto.new(2,3)
+p1.avanzar
