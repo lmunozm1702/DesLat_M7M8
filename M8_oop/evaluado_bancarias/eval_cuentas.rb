@@ -5,6 +5,14 @@ class Usuario
         @nombre=nombre
         @cuentas=cuentas
     end
+
+    def saldo_total
+        saldo=0
+        @cuentas.each do |x|
+            saldo += x.saldo
+        end
+        return saldo
+    end
 end
 
 class CuentaBancaria
@@ -31,5 +39,5 @@ c2 = CuentaBancaria.new("ITAU", "87654321", 5000)
 p1=Usuario.new("Luis", [c1,c2])
 #puts p1.cuentas
 
-#puts c1.transferir(5000,c2)
-#puts c1.saldo
+puts c1.transferir(2000,c2)
+puts p1.saldo_total
