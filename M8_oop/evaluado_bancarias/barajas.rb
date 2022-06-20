@@ -21,6 +21,14 @@ class Baraja
         return @cartas.pop
     end
 
+    def repartir_mano
+        mano = []
+        5.times do |x|
+            mano.push @cartas.pop
+        end
+        return mano
+    end
+
     def cartas_en_baraja
         return @cartas.length
     end
@@ -33,15 +41,22 @@ class Baraja
     end
 end
 
-rojas = Baraja.new()
-rojas.display_cartas
-rojas.barajar
-rojas.display_cartas
-puts rojas.cartas_en_baraja
-a=rojas.sacar
-puts a.numero.to_s+a.pinta.to_s
-puts rojas.cartas_en_baraja
-rojas.display_cartas
+#rojas = Baraja.new()
+#rojas.display_cartas
+#rojas.barajar
+#rojas.display_cartas
+#puts rojas.cartas_en_baraja
+#a=rojas.sacar
+#puts a.numero.to_s+a.pinta.to_s
+#puts rojas.cartas_en_baraja
+#rojas.display_cartas
+#mano = rojas.repartir_mano
+#
+#mano.each do |x|
+#    puts x.numero.to_s+x.pinta.to_s
+#end
+#
+#puts rojas.cartas_en_baraja
 
 #cartas = []
 #5.times do
