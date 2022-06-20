@@ -4,14 +4,26 @@ module Nadador
     end
 end
 
-class Gato
+module Carnivoro
+    def comer
+        puts "Puedo comer carne!"
+    end
 end
 
-class Perro
-    extend Nadador
+class Mamifero
 end
 
-#bobby = Perro.new
-#puts bobby.nadar
+class Gato < Mamifero
+    include Carnivoro
+end
 
-puts Perro.nadar
+class Perro < Mamifero
+    include Nadador
+    include Carnivoro
+end 
+
+#1 class Perro
+#1    extend Nadador
+#1 end
+
+#1 puts Perro.nadar
